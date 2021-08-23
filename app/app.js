@@ -3,6 +3,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
+const routes = require('./routes/index.js');
+
 const PORT = 8079;
 
 var corsOptions = {
@@ -13,18 +15,7 @@ app.use(cors(corsOptions));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-const buscarNoBanco = () => {
-    return { "cuzinho" : "piscando" }
-}
-
-app.use('/status', (req, res) => {
-    const response = buscarNoBanco();
-    res.send(response);
-});
-
-app.use('/tchau', (req, res) => {
-    res.send("Goodbye")
-});
+app.use(routes); 
 
 app.listen(PORT, () => {
 	console.log(`Server is running on port ${PORT}.`);
