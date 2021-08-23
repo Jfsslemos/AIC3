@@ -1,6 +1,6 @@
 const User = {
-    "nome": "Rafael",
-    "senha": "cuzinho"
+    "nome": "admin",
+    "senha": "admin"
 };
 
 exports.User;
